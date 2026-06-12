@@ -1,64 +1,64 @@
-# Java Classes Starter Pack
+# Java-Classes
 
-This repository provides a basic Java starter pack for Android app development. It includes a simple Android project structure with Gradle build scripts, sample classes and activities to help new developers get started with Java on Android.
+Tiny educational Android sample written in Java. Two activities pass a name string between them via an `Intent` extra to demonstrate basic Android navigation and data passing.
 
-## Features
+## What It Does
 
-- **Project skeleton** – preconfigured Gradle scripts and directories for an Android app using Java.
-- **Sample activities and classes** – example Java classes demonstrating fundamental concepts like activities, intents and data models.
-- **Gradle build configuration** – ready to build and run with Android Studio.
-- **Extensible structure** – easily add new modules, libraries or features as you learn.
+- **`MainActivity`** — shows an `EditText`, a "Send" button, and a `TextView`. On click, it trims the input, validates that it is not empty, sets the `TextView` to a greeting, and starts `SecondActivity` with the name in an `Intent` extra (`user_name`). When the input is empty it shows a prompt and a `Toast`.
+- **`SecondActivity`** — reads the `user_name` extra and displays `"Welcome <name>!"` in a `TextView`.
 
-## Getting Started
+That is the entire app surface.
 
-1. Clone the repository:
+## Project Layout
 
-   ```bash
-   git clone https://github.com/shayann07/Java-Classes.git
-   cd Java-Classes
-   ```
+```
+app/
+  src/
+    main/
+      AndroidManifest.xml
+      java/com/example/javaclasses/
+        MainActivity.java
+        SecondActivity.java
+      res/layout/
+        activity_main.xml
+        activity_second.xml
+    test/java/com/example/javaclasses/ExampleUnitTest.java
+    androidTest/java/com/example/javaclasses/ExampleInstrumentedTest.java
+build.gradle.kts
+settings.gradle.kts
+gradle/
+```
 
-2. Open the project in **Android Studio**. The IDE will automatically synchronize and download necessary dependencies.
+## Tech Stack
 
-3. Connect an Android device or start an emulator.
+- Java, source/target compatibility `JAVA_11`.
+- AndroidX `appcompat`, Material Components, `androidx.activity`, ConstraintLayout (declared dependency, not used in the two layouts).
+- Android Gradle Plugin via `libs.versions.toml`.
+- `compileSdk 36`, `minSdk 24`, `targetSdk 36`, `versionName 1.0`, `versionCode 1`.
+- Namespace and application id: `com.example.javaclasses`.
 
-4. Click **Run** to build and launch the sample app.
+## Build / Run
 
-Feel free to explore the `app/src/main/java` directory to see sample classes and activities. You can modify or extend them as you practice Java programming on Android.
+1. Open the project in Android Studio (any version that supports AGP from `gradle/libs.versions.toml`).
+2. Sync Gradle and let Android Studio fetch dependencies.
+3. Run on an emulator or device with `Run` (the `app` configuration). The launcher activity is `MainActivity`.
 
-## Technologies Used
+## Tests
 
-- Java programming language
-- Android SDK and AndroidX libraries
-- Gradle build system
+Only the default-generated stubs are present:
+
+- `ExampleUnitTest.java` — local JUnit `addition_isCorrect` test.
+- `ExampleInstrumentedTest.java` — instrumentation test asserting the package name.
+
+There is no meaningful automated coverage of the activity logic.
+
+## Honest Limitations
+
+- This is a starter scratchpad, not a curated collection of Java samples or a "starter pack" for new Android developers.
+- The greeting in `MainActivity` reads `"Hello" + name + "!"` (no space between `Hello` and the name). Treat this as a known cosmetic bug rather than an intended behavior.
+- There is no `LICENSE` file in the repository, despite earlier README text claiming MIT licensing. The license status is therefore unspecified until a `LICENSE` file is added.
+- `androidx.activity` and `constraintlayout` are pulled in via dependencies but are not exercised by the current layouts.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-<!-- gitpulse:contribution index="1" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="2" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="3" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="4" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="5" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="6" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="7" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="8" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="9" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="10" timestamp="2026-04-24" -->
-<!-- gitpulse:contribution index="11" timestamp="2026-04-28" -->
-<!-- gitpulse:contribution index="12" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="13" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="14" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="15" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="16" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="17" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="18" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="19" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="20" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="21" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="22" timestamp="2026-05-03" -->
-<!-- gitpulse:contribution index="23" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="24" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="25" timestamp="2026-05-04" -->
-<!-- gitpulse:contribution index="26" timestamp="2026-05-04" -->
+No `LICENSE` file is present in the repository. Treat the licensing status as **unspecified** until one is added.
